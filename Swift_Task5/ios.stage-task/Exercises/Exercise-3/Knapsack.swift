@@ -19,13 +19,14 @@ public final class Knapsack {
     
     func findMaxKilometres() -> Int {
         
-        let foodsCombos = generateMatrix(foods)
-        let drinksCombos = generateMatrix(drinks)
-
-        for i in 0...maxWeight {
-            maxKilometersTemp = max(maxKilometersTemp, min(foodsCombos[foods.count][i], drinksCombos[drinks.count][maxWeight-i]))
-        }
-        return maxKilometersTemp
+//        let foodsCombos = generateMatrix(foods)
+//        let drinksCombos = generateMatrix(drinks)
+//
+//        for i in 0...maxWeight {
+//            maxKilometersTemp = max(maxKilometersTemp, min(foodsCombos[foods.count][i], drinksCombos[drinks.count][maxWeight-i]))
+//        }
+//        return maxKilometersTemp
+        return -1
     }
     
 //    func findMaxKilometres() -> Int {
@@ -153,20 +154,20 @@ public final class Knapsack {
 
 // MARK: Test
 
-    func generateMatrix(_ supplies: [Supply]) -> [[Int]] {
-        var matrix: [[Int]] = Array(repeating: Array(repeating: 0, count: maxWeight + 1), count: supplies.count + 1)
-        for i in 0 ... supplies.count {
-            for j in 0 ... maxWeight {
-                if i != 0 && j != 0 {
-                    if (supplies[i - 1].weight > j) {
-                        matrix[i][j] = matrix[i - 1][j]
-                    } else {
-                        matrix[i][j] = max(matrix[i - 1][j], (supplies[i - 1].value + matrix[i - 1][j - supplies[i - 1].weight]))
-                    }
-                }
-            }
-        }
-        return matrix
-    }
-    
+//    func generateMatrix(_ supplies: [Supply]) -> [[Int]] {
+//        var matrix: [[Int]] = Array(repeating: Array(repeating: 0, count: maxWeight + 1), count: supplies.count + 1)
+//        for i in 0 ... supplies.count {
+//            for j in 0 ... maxWeight {
+//                if i != 0 && j != 0 {
+//                    if (supplies[i - 1].weight > j) {
+//                        matrix[i][j] = matrix[i - 1][j]
+//                    } else {
+//                        matrix[i][j] = max(matrix[i - 1][j], (supplies[i - 1].value + matrix[i - 1][j - supplies[i - 1].weight]))
+//                    }
+//                }
+//            }
+//        }
+//        return matrix
+//    }
+//
 }
